@@ -10,7 +10,7 @@ import TextareaAutosize from '@material-ui/core/TextareaAutosize';
 import FileDownload from '../FileDownload';
 import { encryptData } from '../../redux/asyncReq/request';
 
-export const Encrypt = ({btnColor}) => {
+export const Encrypt = ({btnColor,mode}) => {
     const dispatch = useDispatch();
     const algo = useSelector(state => state.selectedAlgo);
     const encRes = useSelector(state => state.encRes);
@@ -31,7 +31,8 @@ export const Encrypt = ({btnColor}) => {
     return(
         <div className = 'mainEncWrapper'>
             <div className='elemWrapper'>
-                <TextField id="outlined-basic" label="Enter text " variant="outlined" onChange = {onUserTextChange} className='textF' />
+                <h2>{mode}</h2>
+                <TextField id="outlined-basic" label="Enter text " variant="outlined" onChange = {onUserTextChange}  className='textF' />
                 <p>OR</p>
                 <FileDownload btnColor={btnColor}/>
                 <InputLabel id="demo-simple-select-label">KeyLenth</InputLabel>

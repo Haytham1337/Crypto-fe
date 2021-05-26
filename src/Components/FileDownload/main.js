@@ -23,7 +23,7 @@ export const FileDownload = ({btnColor}) => {
         <div className = 'downloadBnt'>
             <label htmlFor="upload-photo" >
                 <input style={{ display: 'none' }}  type="file" id="upload-photo" name="upload-photo" onChange={onDownloadChange}/>
-                <Button color={btnColor} variant="contained" component="span">Upload button</Button>
+                <Button color={btnColor} variant="contained" component="span">Download File</Button>
             </label>
             <div>{fileName}</div>
         </div>

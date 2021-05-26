@@ -7,12 +7,13 @@ function App() {
 
   return (
     <div className="App">
+    <h1>Online Symetric Encryptor</h1>
       <div className="mainWrapper">
         <InfoBlock/>
         <div className='encDecWrapper'>
-           <Encrypt btnColor = {'primary'}/>
+           <Encrypt btnColor = {'primary'} mode={'Encrypt'}/>
            <div class="verticalLine"></div>
-           <Encrypt btnColor = {'secondary'}/>
+           <Encrypt btnColor = {'secondary'} mode={'Decrypt'}/>
         </div>
       </div>
     </div>
