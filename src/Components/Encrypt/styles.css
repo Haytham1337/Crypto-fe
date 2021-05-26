@@ -1,4 +1,21 @@
 .mainEncWrapper {
+    margin: 20px;
     display: flex;
     flex-direction: column;
+} 
+
+.elemWrapper  {
+    margin: 20px;
+}
+.SelectW {
+    margin-bottom: 50px;
+    width: 90%;
+}
+
+.textF {
+    width: 90%;
+}
+.btnWrapper {
+    margin-top: 40px;
+    width: 300px;
 }

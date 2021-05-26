@@ -7,8 +7,14 @@ function App() {
 
   return (
     <div className="App">
-      <InfoBlock/>
-      <Encrypt/>
+      <div className="mainWrapper">
+        <InfoBlock/>
+        <div className='encDecWrapper'>
+           <Encrypt btnColor = {'primary'}/>
+           <div class="verticalLine"></div>
+           <Encrypt btnColor = {'secondary'}/>
+        </div>
+      </div>
     </div>
   );
 }

@@ -1,4 +1,4 @@
-
+import { setEncData } from '../actions/actions';
 export const encryptData = encData => {
 
     return async(dispatch) => {
@@ -9,6 +9,7 @@ export const encryptData = encData => {
             },
             body: JSON.stringify(encData)
             });
-            console.log( await response.json());
+            const res = await response.json();
+            dispatch(setEncData(res))
     }
 }

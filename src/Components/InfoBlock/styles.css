@@ -1,0 +1,18 @@
+.btnWidth {
+    width: 150px;
+}
+
+.textInfo{
+    margin: 30px;
+    text-align: center;
+    align-items: center;
+}
+
+.infoWrapper {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.bntGroup {
+    margin-left: 250px;
+}
