@@ -14,8 +14,9 @@ export const Encrypt = () => {
 
     const onInputChange = (e) => {
         setUserText(e.target.value)
+        console.log(e.target.value);
     }
-    const keyList = algo.keySizes.map((el)=><MenuItem value={el}>{el}  bit</MenuItem>)
+    const keyList = algo.keySizes.map((el)=><MenuItem key={el} value={el}>{el}  bit</MenuItem>)
     return(
         <div className = 'mainEncWrapper'>
             <TextField id="outlined-basic" label="Enter text " variant="outlined" onChange = {onInputChange}/>
