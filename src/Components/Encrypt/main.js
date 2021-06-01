@@ -14,7 +14,6 @@ export const Encrypt = ({btnColor,mode}) => {
     const dispatch = useDispatch();
     const algo = useSelector(state => state.selectedAlgo);
     const encRes = useSelector(state => state.encRes);
-    console.log(encRes);
     const [userText,setUserText] = useState('');
     const [userKey,setUserKey] = useState('');
     const [keyLen,setKeyLen] = useState('');

@@ -12,7 +12,7 @@ function App() {
         <InfoBlock/>
         <div className='encDecWrapper'>
            <Encrypt btnColor = {'primary'} mode={'Encrypt'}/>
-           <div class="verticalLine"></div>
+           <div className="verticalLine"></div>
            <Encrypt btnColor = {'secondary'} mode={'Decrypt'}/>
         </div>
       </div>
