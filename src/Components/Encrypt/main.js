@@ -15,7 +15,7 @@ export const Encrypt = ({btnColor,mode}) => {
     const algo = useSelector(state => state.selectedAlgo);
     const a = (mode==='Encrypt') ? 'encRes': 'decRes';
     const result = useSelector(state => state[a]);
-    console.log(result);
+    console.log(algo);
 
     const [userText,setUserText] = useState('');
     const [userKey,setUserKey] = useState('');
@@ -27,10 +27,10 @@ export const Encrypt = ({btnColor,mode}) => {
             keyLen:keyLen
         }
         if(mode==='Encrypt'){
-            dispatch(encryptData(dataForSend,'aes'))
+            dispatch(encryptData(dataForSend,algo.name.toLowerCase()))
         }
         else{
-            dispatch(decryptData(dataForSend,'aes'))
+            dispatch(decryptData(dataForSend,algo.name.toLowerCase()))
         }
     }
     const onUserTextChange = (e) => {
