@@ -2,8 +2,8 @@ import { algsData } from "../consts/constants";
 
 const defaultState = {
     selectedAlgo : algsData.AES,
-    encRes: '',
-    decRes: ''
+    encRes: 'd',
+    decRes: 'a'
   }
  export const reducer =  (state = defaultState,action) => {
     switch(action.type){
@@ -13,11 +13,11 @@ const defaultState = {
         }
       case "SET_ENCRYPTED_DATA":
         return {
-          ...state, encRes:action.payload
+          ...state, encRes:action.payload.encData
         }
-      case "SET_DECTYPTED_DATA":
+      case "SET_DECRYPTED_DATA":
         return {
-          ...state, decRes:action.payload
+          ...state, decRes:action.payload.decData
         }
       default:
         return state

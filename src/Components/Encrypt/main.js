@@ -8,23 +8,37 @@ import InputLabel from '@material-ui/core/InputLabel';
 import  Button  from '@material-ui/core/Button';
 import TextareaAutosize from '@material-ui/core/TextareaAutosize';
 import FileDownload from '../FileDownload';
-import { encryptData } from '../../redux/asyncReq/request';
+import { encryptData,decryptData } from '../../redux/asyncReq/request';
 
 export const Encrypt = ({btnColor,mode}) => {
     const dispatch = useDispatch();
     const algo = useSelector(state => state.selectedAlgo);
-    const encRes = useSelector(state => state.encRes);
+    const a = (mode==='Encrypt') ? 'encRes': 'decRes';
+    const result = useSelector(state => state[a]);
+    console.log(result);
+
     const [userText,setUserText] = useState('');
     const [userKey,setUserKey] = useState('');
     const [keyLen,setKeyLen] = useState('');
     const sendData = () => {
-            dispatch(encryptData())
+        const dataForSend = {
+            text: userText,
+            key: userKey,
+            keyLen:keyLen
+        }
+        if(mode==='Encrypt'){
+            dispatch(encryptData(dataForSend,'aes'))
+        }
+        else{
+            dispatch(decryptData(dataForSend,'aes'))
+        }
     }
     const onUserTextChange = (e) => {
         setUserText(e.target.value)
     }
+
     const onUserKeyChange = (e) => {
-        setUserText(e.target.value)
+        setUserKey(e.target.value)
     }
     const keyList = algo.keySizes.map((el)=><MenuItem key={el} value={el}>{el}  bit</MenuItem>)
     return(
@@ -49,7 +63,7 @@ export const Encrypt = ({btnColor,mode}) => {
                     <Button color={btnColor} variant="contained" component="span" onClick = {sendData} >Encrypt</Button>
                 </div>
                 <p>{algo.name} enctyption output</p>
-                <TextareaAutosize aria-label="empty textarea" placeholder="Empty" value={encRes.encData} />
+                <TextareaAutosize aria-label="empty textarea" placeholder="Empty" value={result} />
             </div>
         </div>
     )
